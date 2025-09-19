@@ -1,4 +1,5 @@
 import generateQuery from "@/utils/generateUrl"
+import Link from "next/link"
 import Filters from "./components/Filter"
 import Pagination from "./components/Pagination"
 
@@ -40,7 +41,8 @@ export default async function Home(props: {
       {/* Grid of products */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {data.products.map((product) => (
-          <div
+          <Link
+            href={`/products/${product.id}`}
             key={product.id}
             className="bg-white shadow-md rounded-xl p-4 hover:shadow-lg transition"
           >
@@ -61,7 +63,7 @@ export default async function Home(props: {
                 {product.stock > 0 ? "In Stock" : "Out of Stock"}
               </p>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
 
