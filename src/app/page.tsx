@@ -13,7 +13,7 @@ export default async function Home(props: {
 }) {
   const searchParams = await props.searchParams
   const page = Number(searchParams.page) || 1
-  const limit = 8
+  const limit = 12
   const skip = (page - 1) * limit
   const sortBy = searchParams.sortBy || "title"
   const order = searchParams.order || "asc"
