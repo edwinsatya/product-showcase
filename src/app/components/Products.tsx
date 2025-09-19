@@ -23,7 +23,7 @@ export default function Products({ products }: ProductsProps) {
               sizes="(max-width: 768px) 100vw,
                      (max-width: 1200px) 50vw,
                      25vw"
-              priority={false}
+              priority={true}
             />
           </div>
           <h2 className="text-lg font-semibold line-clamp-1">{product.title}</h2>
