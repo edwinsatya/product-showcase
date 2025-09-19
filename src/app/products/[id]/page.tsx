@@ -1,3 +1,4 @@
+import Carousel from "@/app/components/Carousel";
 import { notFound } from "next/navigation";
 
 export default async function ProductPage({ params }: { params: Promise<{ id: string }>  }) {
@@ -11,21 +12,10 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
   return (
     <div className="max-w-5xl mx-auto p-6">
       {/* Carousel */}
-      <div className="relative w-full overflow-hidden rounded-2xl shadow-lg mb-6">
-        <div className="flex overflow-x-auto snap-x snap-mandatory">
-          {product.images.map((img, i) => (
-            <img
-              key={i}
-              src={img}
-              alt={`${product.title} image ${i + 1}`}
-              className="w-full flex-shrink-0 snap-center object-cover"
-            />
-          ))}
-        </div>
-      </div>
+      <Carousel images={product.images} />
 
       {/* Product Info */}
-      <div>
+      <div className="mt-6">
         <h1 className="text-3xl font-bold mb-2">{product.title}</h1>
         <p className="text-gray-600 mb-4">{product.description}</p>
 
