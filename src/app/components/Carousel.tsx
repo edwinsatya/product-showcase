@@ -29,6 +29,15 @@ export default function Carousel({ images }: { images: string[] }) {
               className="object-cover"
               sizes="100vw"
               priority={i === 0}
+              placeholder='blur'
+              blurDataURL={`data:image/svg+xml;base64,${btoa(`
+                <svg xmlns="http://www.w3.org/2000/svg" width="400" height="200" viewBox="0 0 400 200">
+                  <rect width="400" height="200" fill="#f3f3f3" />
+                  <rect id="r" width="400" height="200" fill="#ecebeb">
+                  <animate attributeName="x" from="-400" to="400" dur="1.2s" repeatCount="indefinite" />
+                  </rect>
+                </svg>
+              `)}`}
             />
           </div>
         ))}
